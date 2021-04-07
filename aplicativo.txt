@@ -1,0 +1,54 @@
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+ 
+public class aplicativo {
+                                                         
+     ArrayList<Pessoas> dados = new  ArrayList();
+ // método para cadastrar o empregado (caique)
+    public void CadastrarEmp(String nome, String cpf, String matricula) {
+           Empregado novo = new Empregado();
+        novo.setPessoas(nome, cpf);
+           novo.setemp(matricula);
+     dados.add(novo);
+    }
+ // método para cadastrar o cliente (lucca)
+    public void CadastrarCli(String nome, String cpf, double valorDiv) {
+            clientes novo = new clientes();
+      novo.setPessoas(nome, cpf);
+        novo.setclientes(valorDiv);
+      dados.add(novo);
+    }
+//método para remover (caique)
+    public void Remover(String cpf) {
+                  int aux = dados.size();
+        for (int x = 0; x < aux; x++) {
+                  System.out.println("Pessoa deletada!");
+       dados.remove(x);
+        }
+     System.out.println("Cpf inválido, digite outro cpf");
+    }
+ // método de pesquisa (lucca)
+    public Pessoas Pesquisar(String cpf) {
+                   int aux = dados.size();
+        for (int x = 0; x < aux; x++) {
+                    if (dados.get(x).cpf.equals(cpf)) {
+         System.out.println("Esta pessoa é " + dados.getClass());
+                return dados.get(x);
+            }
+        }
+        System.out.println("Cpf inválido");
+        return null;
+    }
+
+// método para listar clientes (lucca)
+    public String ListarCli() {
+        int n = dados.size();
+             Cliente aux = new Cliente();
+        String print = "";
+     for (int x = 0; x < n; x++) {
+                 if (dados.get(x).getClass().equals(aux.getClass())) {
+  print += dados.get(x).toString();
+            }
+        }
+        return print;
+    }
